@@ -1,0 +1,191 @@
+
+.containerForm{
+    background-image: url("https://wallpaperaccess.com/full/5927911.gif");
+   background-size: contain;
+   height: 100vh;
+    
+}
+.containerForm h2{
+    color: white;
+    background-color: rgb(0, 0, 0);
+    height: 50px;
+    margin-top: 0;
+    padding-top: 18px;
+    transition: 0.9s;
+}
+.containerForm h2:hover{
+   
+    -webkit-text-stroke: 1px rgb(60, 255, 0);
+}
+.containerData{
+    background-color: rgba(0, 0, 0, 0.6);
+    width: calc(45%);
+    display: inline-block;
+    position: relative;
+    
+    
+    right: 23%;
+    height: 550px;
+}
+.containerData button{
+   margin-top: 30px;
+   font-size: 100%;
+   width: 50%;
+   height: fit-content;
+   background-color: cornsilk;
+   transition: 0.8s;
+   border-radius: 7px;
+}
+.containerData button:hover{
+    background-color: rgb(156, 255, 161);
+}
+.containerData input{
+    width: 80%;
+    margin-bottom: 20px;
+}
+.containerData textarea{
+    width: 80%;
+    height: 60px;
+}
+.containerData label{
+    color:white;
+    display:block;
+}
+.containerSelecPlat {
+    margin-bottom: 20px;
+}
+.condition div{
+    border: solid rgba(255, 255, 255, 0.596) 1px; 
+    background-color: rgba(255, 255, 255, 0.226);
+    width: fit-content; 
+    display: block;
+   
+    margin: 0 auto;
+}
+.condition{
+    display: inline-block;
+    position: absolute;
+    padding-top: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    top: 90px;
+    width: calc(38%);
+    right: 4%;
+    font-size: 20px;
+    color: rgb(255, 0, 0);
+    height: 538px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.containerPlat{
+    position: absolute;
+    display: inline;
+    color: white;
+    top: 250px;
+    right: 3%;
+    width:calc(40%);
+    margin-left: 10%;
+}
+.containerPlat div{
+    display: inline-block;
+    margin-right: 5px;
+}
+.containerGenre{
+    position: absolute;
+    display: inline;
+    color: white;
+    top: 450px;
+    right: 3%;
+    width:calc(40%);
+    margin-left: 10%;
+    
+}
+.navHome{
+    position: relative;
+    right: 45%;
+}
+.navHome img{
+    width: 50px;
+    height: 40px;
+    position: absolute;
+    display: inline-block;
+    margin-top: -75px;
+    border: solid rgb(0, 0, 0) 2px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    transition: 0.5s;
+   
+}
+.navHome img:hover{
+    border: solid rgb(60, 255, 0);
+}
+   @media only screen and (max-width: 768px) {
+    .containerForm{
+        
+        height: 1350px;
+       }
+       .containerData{
+        height: 550px;
+        position: relative;
+        width: calc(85%);
+        right: 0%;
+        
+       }
+       .navHome img{
+        width: 35px;
+        height: 25px;
+    }
+    .navHome{
+        top: 12px;
+    }
+       .containerForm h2{
+        font-size: 18px;
+    }
+       .condition{
+        position: relative;
+        width: calc(80%);
+        right: 0%;
+        top: 60px;
+        
+        
+        
+        
+       }
+       .containerPlat div{
+        
+        font-size: 10px;
+        
+        
+       }
+       .containerPlat button{
+        
+        font-size: 10px;
+        
+       }
+       .containerGenre div {
+        font-size: 10px;
+       }
+       .containerGenre button {
+        font-size: 10px;
+       }
+       .containerGenre{
+        position: absolute;
+        display: block;
+       top: 1010px;
+       margin: auto 5%;
+       
+        width: calc(85%);
+        color: rgb(255, 255, 255);
+       }
+       .containerPlat{
+        position: relative;
+        display: block;
+       
+        color: rgb(255, 255, 255);
+        top: -350px;
+        right: 0%;
+        margin: 0 auto;
+        width:calc(85%);
+      
+    }
+   }

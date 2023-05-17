@@ -1,0 +1,154 @@
+.containerDetail{
+    background-image: url("https://wallpaperstock.net/wallpapers/thumbs1/33729hd.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.backHome{
+    position: relative;
+    right: 45%;
+}
+.backHome img{
+    width: 50px;
+    height: 40px;
+    position: relative;
+    display: inline-block;
+    top: 65px;
+    border: solid rgba(255, 255, 255, 0.39) 2px;
+    background-color: rgba(255, 255, 255, 0.178);
+    border-radius: 10px;
+    transition: 0.5s;
+   
+}
+.backHome img:hover{
+    border: solid rgba(12, 255, 12, 0.651) 2px;
+}
+.containerId {
+    position: relative;
+    top: -75px;
+    color: white;
+    padding: 10px;
+   border: solid black 1px;
+    background-color: rgba(0, 0, 0, 0.767);
+    transition: 1s;
+}
+.containerId:hover{
+    color: rgba(12, 255, 12, 0.651);
+}
+
+.imageDetail{
+    position: relative;
+    width: calc(40%);
+    transition: 0.5s;
+}
+.imageDetail:hover{
+    width: calc(70%);
+}
+
+.platformDetail div{
+    display: inline;
+    
+}
+.platformDetail{
+    color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.308);
+    width: fit-content;
+    padding: 0px 20px;
+    border-radius: 10px;
+    border: solid rgba(0, 0, 0, 0.214) 2px;
+    margin: 0 auto;
+}
+
+.genresDetail{
+    
+    color: rgb(0, 0, 0);
+    justify-items: center;
+    margin: 10px auto;
+    background-color: rgba(0, 0, 0, 0.308);
+    border: solid rgba(0, 0, 0, 0.233) 1px;
+    max-width: 400px;
+}
+.genresDetail h3{
+    display: inline;
+}
+
+.containerDescription h4{
+    position: relative;
+    margin: 0 auto;
+    max-height: 200px;
+    width: calc(80%);
+    overflow: auto;
+    border: solid rgba(0, 0, 0, 0.334) 2px;
+    background-color: rgba(0, 0, 0, 0.089);
+}
+
+.containerDescription{
+    color: rgb(0, 0, 0);
+}
+.releaseDetail h3{
+    display: inline;
+}
+.releaseDetail h4{
+    display: inline;
+    color: rgb(0, 0, 0);
+    width: max-content;
+    background-color: rgba(0, 0, 0, 0.075);
+    padding: 4px;
+    border-radius: 10px;
+    border: solid rgba(0, 128, 0, 0.404) 1px;
+}
+.releaseDetail{
+    color: rgb(0, 0, 0);
+    margin: 10px;
+}
+
+.ratingDetail{
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.031);
+    border: solid rgba(255, 255, 255, 0.104) 1px;
+}
+.ratingDetail h3{
+    display: inline;
+    margin-right: 20px;
+}
+.ratingDetail h4{
+    display: inline;
+    color: red;
+}
+
+.loadingDetail img{
+    position: relative;
+    width: calc(20%);
+    display: inline-block;
+    margin-top: 100px;
+    padding: 10%;
+    margin-bottom: 380px;
+    
+    
+   }
+   .loadingDetail h1{
+    position: absolute;
+    display: inline-block;
+   margin-left: -30px;
+   margin-top: 25%;
+   left: 46%;
+   
+   }
+@media only screen and (max-width: 768px) {
+
+.backHome{
+    margin-left: 40px;
+    
+   }
+   .loadingDetail img{
+    margin-top: 250px;
+    margin-bottom: 480px;
+   }
+   .containerId{
+    font-size: 16px;
+    margin: auto auto;
+    top: -50px;
+   }
+   
+}
