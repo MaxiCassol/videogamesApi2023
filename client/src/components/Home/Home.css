@@ -1,15 +1,23 @@
 .container-home{
-    background-image: url("https://wallpaperstock.net/wallpapers/thumbs1/33729hd.jpg");
+    background-image: url("https://www.psu.com/wp/wp-content/uploads/2017/03/17-03-09-16-35_0_starwars_battlefront.jpg");
     background-size: cover;
+    background-attachment: fixed;
+    background-position-y: center;
+    height: 100%;
 
 }
 .navBar{
     background-color: rgba(54, 54, 54, 0.712);
-    width: (calc(90%));
+    width: 80%;
     margin-bottom: 20px;
+    margin-left:10% ;
     padding: 10px;
     border-radius: 10px;
-    justify-items: center;
+    justify-items:center;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+
 }
 .navBar select{
     border-radius: 8px;
@@ -20,27 +28,6 @@
 }
 .navBar select:hover{
     background-color: rgb(172, 172, 172);
-}
-.buttonReset button{
-    background-color: rgb(214, 214, 214);
-    border: solid rgb(255, 255, 255) 2px;
-    cursor: pointer;
-    border-radius: 25px;
-    padding: 2px;
-    transition: 0.5s;
-}
-.buttonReset button img{
-    width: 35px;
-}
-.buttonReset {
-    display: inline-block;
-    position: relative;
-    margin-bottom: 20px;   
-   left: -80px;
-}
-.buttonReset button:hover{
-    background-color: rgba(116, 255, 81, 0.253);
-    border: solid green 2px;
 }
 .navButtonCreated button{
     background-color: rgb(214, 214, 214);
@@ -66,20 +53,11 @@
 
 .loadingHome img{
     position: relative;
-    width: calc(20%);
-    display: inline-block;
-    
+    width: calc(30%);
     padding: 10%;
     margin-bottom: 400px;
-   }
-   .loadingHome h1{
-    position: absolute;
-    display: inline-block;
-   margin-left: -25px;
-   margin-top: 15%;
-   left: 46%;
-   }
-   
+}
+
 @media only screen and (max-width: 768px) {
     .container-home{
         padding-right: 15%;
@@ -103,15 +81,21 @@
         position: static;
         margin: 0px 0px 30px 17%;
     }
-    .loadingHome h1{
-        font-size: 18px;
-        margin-top: 20px;
-       }
-       .loadingHome img{
+
+    .cars{
+        display:flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+        justify-content: space-around;
+        height: 50rem;
+    }
+
+    .loadingHome img{
         padding: 5%;
-        margin-left: 15%;
+        margin-left: 50%;
         margin-bottom: 500px;
-       }
+
+    }
 }
 @media screen and (max-width: 500px) {  
     .buttonReset{

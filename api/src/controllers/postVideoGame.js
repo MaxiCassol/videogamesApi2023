@@ -1,47 +1,30 @@
-const {Videogame} = require("../db");
-const Genres = require("../models/Genres");
+const {Videogame, Genres } = require("../db.js")
 
-const postVideoGame = async (req, res)=>{
-    const {name, 
-        description, 
-        platforms, 
-        release_date, 
-        rating, 
-        background_image, 
-        genres
-    } = req.body;
+const postVideoGame = async (body)=>{
+   
+    const {name, description, platforms, release_date, rating, background_image, genres} = body;
+    let [newGame, created] = await Videogame.findOrCreate({
+        where:{
+            name:name
+        }, defaults:{
+        description: description, 
+        platforms: platforms, 
+        release_date: release_date, 
+        rating: rating, 
+        background_image: background_image,
+        name: name
+    }})
 
-    if(!name || !description || !platforms || !background_image || !release_date || !rating || !genres){
-        res.status(400).json({error:'parameters incomplete'});
-    } else{
-        try{
-            let newGame = await Videogame.findOrCreate({
-                where: {name: name},
-                defaults:{
-                    name, 
-                    description, 
-                    platforms, 
-                    release_date, 
-                    rating, 
-                    background_image,            
-                }
-            })
-            
-            // const arrGenres = genres.split(",")
-            // arrGenres.map((genre)=>{
-            // newGame.addGenres(genre)})
-
-            // res.status(200).json(newGame)
-
-            genres.forEach(async (element) => {
-                let findGenres = await Genres.findAll({where: {name: element}});
-                await newGame.addGenres(findGenres)
-            });
-
-        }catch (error){
-            return res.status(400).json({error:error.message})
+    const allGenres = await Genres.findAll({
+        where:{
+            name: genres
         }
-    }
+    });
+    
+    await newGame.addGenres(allGenres);
+    await newGame.reload();
+
+    return "VideoGame created successfully"
 }
 
-module.exports = postVideoGame
+module.exports = postVideoGame;

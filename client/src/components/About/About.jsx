@@ -1,9 +1,10 @@
 /* eslint-disable no-useless-constructor */
 import React from 'react';
-import perfil from '../Images/Perfil.jpg';
-import linkedin from '../Images/linkedin.jpg';
-import git from '../Images/git.jpg';
+import perfil from './Perfil.jpg';
+import linkedin from './linkedin.jpg';
+import git from './git.jpg';
 import style from "./About.module.css";
+import { NavLink } from "react-router-dom";
 
 class About extends React.Component{
     constructor(props) {
@@ -13,7 +14,12 @@ class About extends React.Component{
     render() {
         return (
             <div className={style.about}>
-
+                <NavLink className={style.arrowBack} to={"/home"}>
+                    <button>
+                        <img src="https://cdn.icon-icons.com/icons2/1993/PNG/512/arrow_arrows_back_direction_left_navigation_right_icon_123237.png" alt="back"/>
+                    </button>
+                
+            </NavLink>
                 <img src={perfil} className={style.img} alt=""/>
 
                 <h1>Design by: Maximiliano Cassol Montagner </h1>

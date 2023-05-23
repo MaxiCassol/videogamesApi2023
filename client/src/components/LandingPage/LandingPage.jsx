@@ -1,15 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import style from "./LandingPage.module.css"
+import "./LandingPage.css"
 
 const LandingPage = () =>{
     
     return(
-        <div className={style.landingPage}>
+        <div className="landingPage">
             <div >
-            <div > <h1 className={style.welcomeLanding}>BIENVENIDO A LA APP DE VIDEOJUEGOS</h1></div>
-            <Link to={"/home"} className={style.LinkIngreso}> 
-            START
+                <div className="welcomeLanding"> 
+                    <h1 >BIENVENIDO A LA APP DE VIDEOJUEGOS</h1>
+                </div>
+            <Link to={"/home"} > 
+                <button className="button">
+                    START
+                </button>
             </Link>
             </div>
         </div>

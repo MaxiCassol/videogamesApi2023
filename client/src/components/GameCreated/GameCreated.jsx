@@ -1,12 +1,16 @@
-import React from "react";
+import {React, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { clearCreatedPost } from "../../redux/actions";
+import { clearCreatedPost, getGames } from "../../redux/actions";
 import style from "./GameCreated.module.css"
 
-const GameCreated = () =>{
+const GameCreated = (props) =>{
     const dispatch = useDispatch()
     dispatch(clearCreatedPost())
+    useEffect(() => {
+        // Llama a la acción para obtener todos los juegos
+        dispatch(getGames());
+    }, [dispatch]);
 
     return (
         <div className={style.containerCreated}>
@@ -14,11 +18,13 @@ const GameCreated = () =>{
                 <img className={style.iconBack} src="https://cdn-icons-png.flaticon.com/512/566/566095.png" alt="back"/>
             </NavLink>
             <div className={style.congratulations}>
-                <p> Felicidades, el video juego fue creado exitosamente!!</p>
+                <p> Video juego creado exitosamente!!!</p>
             </div>
-            <div className={style.imageMario}>
-                <img alt="marioBros" src="https://i.gifer.com/1V8t.gif"/>
-                <img alt="marioBros" src="https://i.gifer.com/1V8t.gif"/>
+            <div className={style.videoo}>
+                <video autoPlay="true" muted loop="false" className={style.video}>
+                <source src="https://st3.depositphotos.com/14051716/18813/v/600/depositphotos_188139700-stock-video-retro-videogame-well-done-text.mp4" type="video/mp4"/>
+                </video>
+                
             </div>
         </div>
     )

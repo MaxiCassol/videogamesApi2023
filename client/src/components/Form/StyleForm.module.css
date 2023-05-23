@@ -1,8 +1,12 @@
 
 .containerForm{
-    background-image: url("https://wallpaperaccess.com/full/5927911.gif");
-   background-size: contain;
-   height: 100vh;
+    background-image: url("https://i0.wp.com/codigoespagueti.com/wp-content/uploads/2022/04/the-mandalorian-juego-xbox.jpg");
+    background-size:cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
     
 }
 .containerForm h2{
@@ -15,17 +19,19 @@
 }
 .containerForm h2:hover{
    
-    -webkit-text-stroke: 1px rgb(60, 255, 0);
+    -webkit-text-stroke: 1px rgb(225, 66, 14);
 }
 .containerData{
     background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5%;
     width: calc(45%);
     display: inline-block;
-    position: relative;
+    /* position: relative; */
+    text-align: center;
+    justify-content: center;
     
-    
-    right: 23%;
-    height: 550px;
+    margin-left: 5rem;
+    height: 550px; 
 }
 .containerData button{
    margin-top: 30px;
@@ -37,7 +43,7 @@
    border-radius: 7px;
 }
 .containerData button:hover{
-    background-color: rgb(156, 255, 161);
+    background-color: rgb(205, 69, 16);
 }
 .containerData input{
     width: 80%;
@@ -54,21 +60,22 @@
 .containerSelecPlat {
     margin-bottom: 20px;
 }
-.condition div{
+.condicion div{
     border: solid rgba(255, 255, 255, 0.596) 1px; 
-    background-color: rgba(255, 255, 255, 0.226);
-    width: fit-content; 
-    display: block;
-   
-    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.344);
+    width: 90%; 
+    /* padding: 1rem; */
+    margin-top: 3rem;
+    text-align: center;
+    margin-left: 1.7rem;
 }
-.condition{
+.condicion{
     display: inline-block;
     position: absolute;
-    padding-top: 15px;
     background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5%;
     align-items: center;
-    top: 90px;
+    top: 14.5rem;
     width: calc(38%);
     right: 4%;
     font-size: 20px;
@@ -81,7 +88,7 @@
     position: absolute;
     display: inline;
     color: white;
-    top: 250px;
+    top: 25rem;
     right: 3%;
     width:calc(40%);
     margin-left: 10%;
@@ -94,7 +101,7 @@
     position: absolute;
     display: inline;
     color: white;
-    top: 450px;
+    top: 35rem;
     right: 3%;
     width:calc(40%);
     margin-left: 10%;

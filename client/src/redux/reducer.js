@@ -8,7 +8,10 @@ import {
     FILTER_RATING, 
     DETAIL_GAME, 
     POST_GAME, 
-    CLEAR_POST 
+    CLEAR_POST,
+    SET_PAGINATION,
+    DELETED_GAME,
+    DELETE_STATES
 } from "./actions"
 
 const initialState = {
@@ -16,16 +19,21 @@ const initialState = {
     genres: [],
     videogame: [],
     game: [],
-    gameCreated: ""
+    gameCreated: "",
+    pagination: {  
+        itemsPerPage: 15,
+        currentPage: 1
+    }
 }
 
 const reducer = (state = initialState, action) =>{
+    
     switch (action.type){
         case GET_GAMES:
             return{
                 ...state,
                 videogames: action.payload,
-                videogame: action.payload
+                videogame: action.payload,
             }
         case GET_BY_NAME:
             return{
@@ -38,27 +46,15 @@ const reducer = (state = initialState, action) =>{
                 genres: action.payload
             }
         case FILTER_GENRES:
-            const gameGenres = state.videogame
-            
-            let filter= []
-            if(action.payload !== "all"){
-            for(let i = 0; gameGenres.length > i; i++){
-                for(let j = 0; gameGenres[i].genres.length > j; j++){
-                    if(gameGenres[i].genres[j].name.includes(action.payload)){
-                        filter.push(gameGenres[i])
-                    }
-                }
-            }
-            return{
+            const allVideoGames = state.videogame;
+            const filteredArr =
+                allVideoGames.filter(el => el.genres.includes(action.payload))
+            return {
                 ...state,
-                videogames: filter
-            }
-        }else{
-            return{
-                ...state,
-                videogames: state.videogame
-            }
-        }
+                videogame: state.videogame,
+                videogames: filteredArr
+            };
+        
         case ALFA_ORDER:
             const asd = state.videogames.sort((x,y)=> x.name.localeCompare(y.name))
             
@@ -74,6 +70,7 @@ const reducer = (state = initialState, action) =>{
                     videogames: des
                 }
             }
+            return state;
         case FILTER_CREATED:
             const allGames = state.videogame
             let game = []
@@ -110,14 +107,37 @@ const reducer = (state = initialState, action) =>{
         case POST_GAME:
             return{
                 ...state,
-                gameCreated: action.payload
+                // gameCreated: "VideoGame created successfully",
+                // videogames: [...state.videogames, action.payload]
+                gameCreated: action.payload 
             }
         case CLEAR_POST: 
             return{
                 ...state,
                 gameCreated: action.payload
             }
-            default: return state;   
+        case SET_PAGINATION: 
+            return {
+                ...state,
+                pagination: {
+                ...state.pagination,
+                itemsPerPage: action.payload.itemsPerPage,
+                currentPage: action.payload.currentPage,
+                },
+            };
+        case DELETED_GAME:
+            return{
+                ...state,
+                videogame: action.payload
+            };
+        case DELETE_STATES:
+            return{
+                videogames: [],
+                getAllVideoGames: [],
+                genres: [],
+                details: [],
+            }
+        default: return state;   
 }
 
 

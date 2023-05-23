@@ -6,8 +6,8 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
 
-const modelGenres = require("./models/Genres");
-const modelVideogame = require("./models/Videogame")
+// const modelGenres = require("./models/Genres");
+// const modelVideogame = require("./models/Videogame")
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogames`, {
   logging: false, // set to console.log to see the raw SQL queries
@@ -15,7 +15,8 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
 });
 const basename = path.basename(__filename);
 
-const modelDefiners = [modelGenres, modelVideogame];
+// const modelDefiners = [modelGenres, modelVideogame];
+const modelDefiners = [];
 
 // Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
 fs.readdirSync(path.join(__dirname, '/models'))

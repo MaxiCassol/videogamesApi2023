@@ -10,16 +10,29 @@ export const FILTER_RATING = "FILTER_BY_RATING";
 export const DETAIL_GAME = "GET_DETAIL_VIDEOGAME";
 export const POST_GAME= "POST_VIDEOGAME";
 export const CLEAR_POST = "CLEAR_CREATED_VIDEOGAME";
+export const SET_PAGINATION = "SET_PAGINATION";
+export const DELETED_GAME = "DELETE_GAME";
+export const DELETE_STATES = "DELETE_STATES"
+export const MODIFIY_GAME = "MODIFIY_GAME";
 
 export const getGames = () => {
     return async function (dispatch) {
-        let info = await axios.get("http://localhost:3001/videogames")
-        return dispatch({
-            type: GET_GAMES,
-            payload: info.data
-        })
-    }
-}
+        try {
+            const response = await axios.get("http://localhost:3001/videogames");
+
+            return dispatch({
+                type: GET_GAMES,
+                payload: response.data,
+            });
+        } catch (error) {
+            return {
+                error: "Can't Get Games",
+                originalError: error,
+            };
+        }
+    };
+};
+
 
 export const getGameByName = (name) => {
     return async function(dispatch){
@@ -35,13 +48,20 @@ export const getGameByName = (name) => {
     }
 }
 
-export const getGenres = () => {
-    return async function(dispatch){
-        const allGenres = await axios.get("http://localhost:3001/genres")
-        return dispatch({
-            type: GET_GENRES,
-            payload: allGenres.data
-        })
+export const getGenres = (payload) => {
+    return async function (dispatch) {
+        try {
+            let response = await axios.get("http://localhost:3001/genres", payload)
+            return dispatch({
+                type: GET_GENRES,
+                payload: response.data
+            });
+        } catch (error) {
+            return {
+                error: "Can't Get Genres",
+                originalError: error
+            }
+        }
     }
 }
 
@@ -102,3 +122,39 @@ export const clearCreatedPost = () =>{
     }
 }
 
+export const deleteVideoGame = (id) => {
+    return async function (dispatch) {
+        try {
+            // console.log(id)
+            let response = await axios.delete(`${process.env.REACT_APP_API}videogames/${id}`)
+            return dispatch({
+                type: DELETED_GAME,
+                payload: response.data
+            })
+        } catch (error) {
+            return {
+                error: 'No se pudo eliminar el juego',
+                originalError: error
+            }
+        }
+    }
+}
+
+// export const deleteStates = () => {
+//     return async function (dispatch) {
+//         return dispatch({
+//             type: DELETE_STATES,
+//         })
+//     }
+// }
+
+
+export const setPagination = (itemsPerPage, currentPage) => {
+    return {
+        type: 'SET_PAGINATION',
+        payload: {
+            itemsPerPage,
+            currentPage,
+        },
+    };
+};
