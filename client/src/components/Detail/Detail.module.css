@@ -77,13 +77,14 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
    border-radius: 7px;
-   background-color: rgb(226, 43, 183);
+   background-color: red;
    border: solid white;
    border-style: ridge white;
+   color: azure;
     
 }
 
 .deleteGame:hover{
-    background-color: rgb(140, 25, 140);
+    background-color: black;
     color:white;
 }

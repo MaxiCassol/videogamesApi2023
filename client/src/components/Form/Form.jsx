@@ -5,22 +5,13 @@ import {NavLink, useNavigate} from "react-router-dom"
 import { useEffect } from "react";
 import  handlerInput  from "../handlersForm/handlerInput";
 import style from  "./StyleForm.module.css"
-import { postVideogame, getGenres } from "../../redux/actions";
-import axios from "axios";
-import GameCreated from "../GameCreated/GameCreated"
+import { getGenres, postVideogame } from "../../redux/actions";
+
 
 const Form = () =>{
     const navigate = useNavigate()
     const genres = useSelector((state) => state.genres)
-    const gameCreated = useSelector((state) => state.gameCreated) 
-    
     const dispatch = useDispatch()
-
-    const [genre, setGenre] = useState([{
-        id: "",
-        name: ""
-
-    }])
 
     const [form, setForm] = useState({
     name: "",
@@ -31,7 +22,6 @@ const Form = () =>{
     rating: "",
     genres:[]
     })
-
 
     const [condition, setCondition] = useState("")
 
@@ -47,18 +37,18 @@ const Form = () =>{
         else if(form.background_image === "") setCondition("Debe llenar el campo imagen")
         
         else if(form.description.trim() === "") setCondition("Debe llenar el campo descripción")
-        
-        else if(form.platforms.length === 0) setCondition("Debe seleccionar una o mas plataformas")
-        
+
         else if(form.rating === "") setCondition("Debe seleccionar el rating entre 1 y 5")
         
+        else if(form.release_date.toString().length !== 10) {setCondition("Debe seleccionar la fecha correspondiente")}
+
+        else if(form.platforms.length === 0) setCondition("Debe seleccionar una o mas plataformas")
+
         else if(form.genres.length === 0) setCondition("Debe seleccionar uno o mas generos")
         
-        else if(form.release_date.toString().length !== 10) {setCondition("Debe seleccionar la fecha correspondiente") 
-        }
-        else {const postGame = await axios.post("http://localhost:3001/videogames", form)
+        else {
+        dispatch(postVideogame(form))
         setCondition("")
-
         setForm({
             name: "",
             description: "",
@@ -74,42 +64,34 @@ const Form = () =>{
         }
     }
 
-    const handlerGenre = (e) =>{
+    const handlerGenre = (e) => {
         e.preventDefault();
-        if (e.target.value) {
+        //busco si esta repetido
+        const comprobation = form.genres.find(gen => gen === e.target.value)
+        if(e.target.value !== "allGenre" && !comprobation) { 
+            setCondition("")
             setForm({ ...form, genres: [...form.genres, e.target.value] });
+            e.target.value = "allGenre";
         }
     };
 
-    const handlerDeleteGen=(e)=>{
-            e.preventDefault()
-            const filterGen = genre.filter((ele) => Number(ele.id) !== Number(e.target.value))
-            
-            setGenre(filterGen)
-        
-            let idNew = [];
-            filterGen.map((ele) => {
-                idNew.push(ele.id)
-            })
-        
-            idNew = idNew.toString().slice(1)
-            
-            setForm({
-                ...form,
-                genres: idNew
+    const handlerDeleteGen = (e) => {
+        const filterGen = form.genres.filter((gen) => gen !== e.target.value)
+        setForm({
+            ...form,
+            genres: filterGen
         })
     }   
 
     const handlerPlatforms = (e) =>{
         e.preventDefault()
+        //busco si esta repetido
         const comprobation = form.platforms.find(plat => plat === e.target.value)
         if(e.target.value !== "platform" && !comprobation) { 
             setCondition("")
-            let platform = [e.target.value, ...form.platforms]
-            setForm({
-                ...form,
-                platforms: platform
+            setForm({...form, platforms: [...form.platforms, e.target.value]
             })
+            e.target.value = "platform";
         }
     }
 
@@ -155,7 +137,9 @@ const Form = () =>{
                     </div> 
                     <div className={containerSelecPlat}>
                         <label htmlFor="platform">Plataforma: </label>
-                        <select id="platform" onClick={(e)=> handlerPlatforms(e)} >
+                        <select 
+                        id="platform" 
+                        onClick={(e)=> handlerPlatforms(e)} >
                             <option value={"platform"}>Plataforma</option>
                             <option value={"Microsoft Windows"}>Microsoft Windows</option>
                             <option value={"Linux"}>Linux</option>
@@ -190,27 +174,25 @@ const Form = () =>{
                 </div>
             </div>
             <div>
+
+
             <div className={condicion}>
                 <div>{condition}</div> 
             </div>
                 <div className={containerPlat}>
                     <h3>Plataformas seleccionadas: </h3>
                     {form.platforms.map((plat)=>{
-                    return <div key={plat}> {plat}<button value={plat} onClick={(e) => handlerDeletePlat(e)}>Eliminar 
-                    </button> 
+                    return <div key={plat}> {plat}
+                    <button value={plat} onClick={(e) => handlerDeletePlat(e)} style={{color:"white", backgroundColor:"red"}}> X </button> 
                     </div>
                     })}
                 </div>
                 <div className={containerGenre}>
                     <h3>Generos seleccionados:  </h3>
-                    {
-                        form.genres.map((gen, index) => {
-                            if(gen.name !== ""){
-                            return(
-                            <div key={index} style={{display: "inline", margin: "10px"}}>{gen}   
-                                <button value={gen.id} onClick={(e)=>handlerDeleteGen(e)}>Eliminar</button>
-                            </div> 
-                            ) }
+                    {form.genres.map((gen) => {
+                        return <div key={gen} style={{display: "inline", margin: "10px"}}> {gen}   
+                        <button value={gen} onClick={(e) => handlerDeleteGen(e)} style={{color:"white", backgroundColor:"red"}}> X </button>
+                        </div> 
                         })
                     }
                 </div>

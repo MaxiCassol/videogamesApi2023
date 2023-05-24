@@ -71,6 +71,7 @@ const reducer = (state = initialState, action) =>{
                 }
             }
             return state;
+
         case FILTER_CREATED:
             const allGames = state.videogame
             let game = []
@@ -85,6 +86,7 @@ const reducer = (state = initialState, action) =>{
                 ...state,
                 videogames: game
             }
+
         case FILTER_RATING: 
             let allGame = state.videogame;
 
@@ -99,21 +101,25 @@ const reducer = (state = initialState, action) =>{
                 ...state,
                 videogames: allGame
             }
+
         case DETAIL_GAME:
             return{
                 ...state,
                 game: action.payload
             }
+            
         case POST_GAME:
             return{
                 ...state,
                 gameCreated: action.payload 
             }
+
         case CLEAR_POST: 
             return{
                 ...state,
                 gameCreated: action.payload
             }
+
         case SET_PAGINATION: 
             return {
                 ...state,
@@ -123,11 +129,13 @@ const reducer = (state = initialState, action) =>{
                 currentPage: action.payload.currentPage,
                 },
             };
+
         case DELETED_GAME:
             return{
                 ...state,
                 videogame: action.payload
             };
+
         case DELETE_STATES:
             return{
                 videogames: [],

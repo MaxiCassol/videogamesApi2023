@@ -1,5 +1,6 @@
 .containerPaginado{
     margin-left: 30%;
+    
 }
 
 .paginado{
@@ -20,7 +21,6 @@
 .paginado-active{
     font-weight: bold;
     padding: 8px;
-    
     border-radius: 20%;
 }
 

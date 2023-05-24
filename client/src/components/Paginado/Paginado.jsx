@@ -35,7 +35,14 @@ const Paginado = () => {
 
     return (
         <div className="containerPaginado">
-            <button onClick={() => goToPrevPage(currentPage)} disabled={currentPage === 1}>Anterior</button>
+            <button onClick={() => 
+            goToPrevPage(currentPage)} 
+            className={'paginado'}
+            disabled={currentPage === 1}
+            style={currentPage === 1 ? { scale: "0" } : { cursor: "pointer" }}
+            >Anterior
+            </button>
+            
             {pageNumbers.map((number) => (
             <div
                 key={number}
@@ -51,7 +58,13 @@ const Paginado = () => {
                 
             </div>
             ))}
-            <button onClick={() => goToNextPage(currentPage)} disabled={currentPage === totalPages}>Siguiente </button>
+            <button onClick={() => 
+                goToNextPage(currentPage)} 
+                className={'paginado'}
+                disabled={currentPage === totalPages}
+                style={currentPage === totalPages  || totalPages === 0 ? { scale: "0" } : { cursor: "pointer" }}
+                >Siguiente
+            </button>
         </div>
     );
 };

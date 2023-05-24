@@ -33,6 +33,7 @@
     background-color: rgb(214, 214, 214);
     transition: 0.5s;
     padding: 10px;
+    cursor: pointer;
 }
 
 .navButtonCreated{
@@ -49,9 +50,11 @@
     color: rgb(0, 0, 0);
     text-decoration: none;
     display: inline;
+    cursor: pointer;
 }
 .logout{
     color: white;
+    cursor: pointer;
 }
 .loadingHome img{
     position: relative;

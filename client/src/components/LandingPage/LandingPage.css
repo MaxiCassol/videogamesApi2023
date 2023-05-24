@@ -32,7 +32,7 @@
   line-height: 78px;
   font-size: 20px;
   font-family:Arial, Helvetica;
-  /* background: linear-gradient(45deg, transparent 5%, #FF013C 5%); */
+  cursor: pointer;
   font-weight: bold;
   background-image: url("https://i.gifer.com/fxTQ.gif") ;
     background-size: cover;

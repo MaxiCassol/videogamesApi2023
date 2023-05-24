@@ -14,7 +14,6 @@ import "./Home.css"
 const Home = () => {
     const allGenres = useSelector((state) => state.genres)
     const allVideoGames = useSelector((state) => state.videogames)
-    // const allVideoGames = useSelector((state) => state.filteredVideogames);
     const { itemsPerPage, currentPage } = useSelector(
         (state) => state.pagination
     );
@@ -33,28 +32,12 @@ const Home = () => {
         dispatch(getGenres())
     },[])
 
-    
-    const handlerFilter = (e)=>{
-        e.preventDefault()
-        dispatch(getFilterByGenres(e.target.value))
-        // setCurrentPage(1)
-        dispatch(setPagination(itemsPerPage, 1))
-        
-    }
-
     const handlerAlphabet = (e) =>{
         e.preventDefault()
         dispatch(alfabOrder(e.target.value))
-        // setCurrentPage(1)
         dispatch(setPagination(itemsPerPage, 1))
         setRender(`Ordenado ${e.target.value}`)
         if(e.target.value === "default") dispatch(getGames())
-    }
-    const handlerCreated = (e)=>{
-        e.preventDefault()
-        dispatch(createdFilterGame(e.target.value))
-        // setCurrentPage(1)
-        dispatch(setPagination(itemsPerPage, 1))
     }
     
     const handlerRating = (e) =>{
@@ -63,6 +46,19 @@ const Home = () => {
         dispatch(setPagination(itemsPerPage, 1))
         setRender(`renderizado rating ${e.target.value}`)
         if(e.target.value === "all") dispatch(getGames())  
+    }
+
+    const handlerFilter = (e)=>{
+        e.preventDefault()
+        dispatch(getFilterByGenres(e.target.value))
+        dispatch(setPagination(itemsPerPage, 1))
+        
+
+    }
+    const handlerCreated = (e)=>{
+        e.preventDefault()
+        dispatch(createdFilterGame(e.target.value))
+        dispatch(setPagination(itemsPerPage, 1))
     }
 
     const handlePaginationChange = (newItemsPerPage, newCurrentPage) => {
@@ -84,6 +80,7 @@ return (
                 <option value={"Mayor-menor"}>Mayor a menor</option>
                 <option value={"Menor-mayor"}>Menor a mayor</option>
             </select>
+
             <h3>Filtrar por:</h3>
             <select onChange={(e)=>handlerFilter(e)} >
                 <option value={"all"}>Generos Todos</option>
@@ -102,10 +99,10 @@ return (
             </select>
 
             <SearchBar/>
-            <div>
-            <button>
-                <NavLink className={"navLinkCreated"} to={"/About"}>Desarrollador</NavLink>
-            </button>
+            <div className={"navLinkCreated"}>
+                <NavLink className={"navLinkCreated"} to={"/About"}>
+                    <button>Desarrollador</button>
+                </NavLink>
             </div>
             <div>
                 <NavLink to="/" >
@@ -115,9 +112,11 @@ return (
         </div>
         
         <div className="navButtonCreated">
-            <button>
-                <NavLink  className={"navLinkCreated"} to={"/formcreated"}>Crear un video juego</NavLink>
-            </button>
+            <NavLink  className={"navLinkCreated"} to={"/formcreated"}>
+                <button>
+                    Crear un video juego
+                </button>
+            </NavLink>
         </div>
         
         <div >

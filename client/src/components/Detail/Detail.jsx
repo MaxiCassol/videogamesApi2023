@@ -93,6 +93,9 @@ const Detail = ()=>{
                 <button className={deleteGame} onClick={(e) => handleDeleteGame(e)}>Delete game</button>
                 : <h3>Este juego no se puede borrar</h3>
                 } 
+                <NavLink className={arrowBack} to={"/home"}>
+                    <img src="https://cdn.icon-icons.com/icons2/1993/PNG/512/arrow_arrows_back_direction_left_navigation_right_icon_123237.png" alt="back"/>
+                </NavLink>
             </div>
             : 
             <div className={loadingDetail}>
