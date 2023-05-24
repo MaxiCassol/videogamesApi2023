@@ -7,6 +7,7 @@ import  handlerInput  from "../handlersForm/handlerInput";
 import style from  "./StyleForm.module.css"
 import { postVideogame, getGenres } from "../../redux/actions";
 import axios from "axios";
+import GameCreated from "../GameCreated/GameCreated"
 
 const Form = () =>{
     const navigate = useNavigate()
@@ -67,6 +68,7 @@ const Form = () =>{
             platforms: [],
             genres: [],
         });
+        
         alert("Video Game creado con exito")
         navigate("/home")
         }

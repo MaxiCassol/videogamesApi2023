@@ -19,6 +19,7 @@
 .name{
   text-align: center;
   color: black;
+  text-overflow: ellipsis;
 }
 .imag{
   border-radius: 10%;
@@ -26,7 +27,7 @@
   transition: transform .2s;
 }
 .imag.hover{
-    /* transition: all ; */
+    transition: all ;
     transform-origin: 50% 65%;
     transition: transform 5s, filter 3s ease-in-out;
     filter: brightness(150%);

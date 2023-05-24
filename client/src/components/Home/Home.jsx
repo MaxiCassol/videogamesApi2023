@@ -71,49 +71,53 @@ const Home = () => {
 
 return (
     <div className="container-home">
-        
         <div className="navBar">
-        <h3>Ordenar por:</h3>
-        <select onChange={(e)=>handlerAlphabet(e)}>
-            <option value={"default"}>Orden Alfabetico</option>
-            <option value={"asd"}>Orden Ascendente</option>
-            <option value={"des"}>Orden Descendente</option>
-        </select>
+            <h3>Ordenar por:</h3>
+            <select onChange={(e)=>handlerAlphabet(e)}>
+                <option value={"default"}>Orden Alfabetico</option>
+                <option value={"asd"}>Orden Ascendente</option>
+                <option value={"des"}>Orden Descendente</option>
+            </select>
 
-        <select onChange={(e)=>handlerRating(e)}>
-            <option value={"all"}>Rating</option>
-            <option value={"Mayor-menor"}>Mayor a menor</option>
-            <option value={"Menor-mayor"}>Menor a mayor</option>
-        </select>
-        <h3>Filtrar por:</h3>
-        <select onChange={(e)=>handlerFilter(e)} >
-            <option value={"all"}>Generos Todos</option>
-            {allGenres?.map((genre)=>{
-                    return(
-                        <option key={genre.id} value={genre.name}>{genre.name}</option>
-                    )
-                })
-            }
-        </select>
+            <select onChange={(e)=>handlerRating(e)}>
+                <option value={"all"}>Rating</option>
+                <option value={"Mayor-menor"}>Mayor a menor</option>
+                <option value={"Menor-mayor"}>Menor a mayor</option>
+            </select>
+            <h3>Filtrar por:</h3>
+            <select onChange={(e)=>handlerFilter(e)} >
+                <option value={"all"}>Generos Todos</option>
+                {allGenres?.map((genre)=>{
+                        return(
+                            <option key={genre.id} value={genre.name}>{genre.name}</option>
+                        )
+                    })
+                }
+            </select>
 
-        <select onChange={(e)=>handlerCreated(e)}>
-            <option value={"all"}>Creados y existentes</option>
-            <option value={"created"}>Creados por mi</option>
-            <option value={"not_created"}>Existentes</option>
-        </select>
+            <select onChange={(e)=>handlerCreated(e)}>
+                <option value={"all"}>Creados y existentes</option>
+                <option value={"created"}>Creados por mi</option>
+                <option value={"not_created"}>Existentes</option>
+            </select>
 
-        <SearchBar/>
-        <div>
-        <button>
-            <NavLink className={"navLinkCreated"} to={"/About"}>Desarrollador</NavLink>
-        </button>
-        </div>
+            <SearchBar/>
+            <div>
+            <button>
+                <NavLink className={"navLinkCreated"} to={"/About"}>Desarrollador</NavLink>
+            </button>
+            </div>
+            <div>
+                <NavLink to="/" >
+                    <h3 className={"logout"}>SALIR</h3>
+                </NavLink>
+            </div>
         </div>
         
         <div className="navButtonCreated">
-        <button>
-            <NavLink  className={"navLinkCreated"} to={"/formcreated"}>Crear un video juego</NavLink>
-        </button>
+            <button>
+                <NavLink  className={"navLinkCreated"} to={"/formcreated"}>Crear un video juego</NavLink>
+            </button>
         </div>
         
         <div >
@@ -136,11 +140,11 @@ return (
                         />
                     )
                 }): <div className="cars">
-                    <img src="https://hbr.org/resources/images/article_assets/2021/06/Jun21_26_1221368566_1159233041_1219183183.gif" alt="loading"/>
-
+                    <img src="https://cdn.dribbble.com/users/1253165/screenshots/3621577/media/0cc3e97033b3200c987b69b535ed3e64.gif" alt="loading"/>
                 </div>
             }
         </div>
+
         <div >
             <Paginado  numPage= {numPage} currentPage={currentPage} handlePaginationChange= {handlePaginationChange}/>
         </div>

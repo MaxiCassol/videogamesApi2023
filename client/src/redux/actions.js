@@ -125,8 +125,7 @@ export const clearCreatedPost = () =>{
 export const deleteVideoGame = (id) => {
     return async function (dispatch) {
         try {
-            // console.log(id)
-            let response = await axios.delete(`${process.env.REACT_APP_API}videogames/${id}`)
+            let response = await axios.delete(`http://localhost:3001/videogames/${id}`)
             return dispatch({
                 type: DELETED_GAME,
                 payload: response.data
@@ -139,15 +138,6 @@ export const deleteVideoGame = (id) => {
         }
     }
 }
-
-// export const deleteStates = () => {
-//     return async function (dispatch) {
-//         return dispatch({
-//             type: DELETE_STATES,
-//         })
-//     }
-// }
-
 
 export const setPagination = (itemsPerPage, currentPage) => {
     return {

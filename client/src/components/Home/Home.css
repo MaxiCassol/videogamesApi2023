@@ -50,7 +50,9 @@
     text-decoration: none;
     display: inline;
 }
-
+.logout{
+    color: white;
+}
 .loadingHome img{
     position: relative;
     width: calc(30%);

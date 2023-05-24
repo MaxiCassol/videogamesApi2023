@@ -1,16 +1,16 @@
-import {React, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import {React } from "react";
+// import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { clearCreatedPost, getGames } from "../../redux/actions";
+// import { clearCreatedPost, getGames } from "../../redux/actions";
 import style from "./GameCreated.module.css"
 
-const GameCreated = (props) =>{
-    const dispatch = useDispatch()
-    dispatch(clearCreatedPost())
-    useEffect(() => {
-        // Llama a la acción para obtener todos los juegos
-        dispatch(getGames());
-    }, [dispatch]);
+const GameCreated = () =>{
+    // const dispatch = useDispatch()
+    // dispatch(clearCreatedPost())
+    // useEffect(() => {
+    //     // Llama a la acción para obtener todos los juegos
+    //     dispatch(getGames());
+    // }, [dispatch]);
 
     return (
         <div className={style.containerCreated}>

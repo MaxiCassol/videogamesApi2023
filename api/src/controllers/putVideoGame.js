@@ -8,13 +8,15 @@ const editGame = async (game, id) => {
             name: name,
             description: description,
             platforms: platforms,
+            genres: genres,
         },
             {
             where: {
                 id: id,
     
             },
-            })
+        })
+
         if (!editedGame) {
             throw new Error('No se encuentra el juego solicitado')
         }

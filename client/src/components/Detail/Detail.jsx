@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams, useNavigate } from "react-router-dom";
-import { getDetailgame, deleteVideoGame }  from "../../redux/actions";
+import { getDetailgame, deleteVideoGame, getGames }  from "../../redux/actions";
 import styles from './Detail.module.css'
 
 const { backgroundImage, loadingDetail, containerDetail, arrowBack, deleteGame, imageDetail } = styles
@@ -17,7 +17,6 @@ const Detail = ()=>{
     const game = useSelector((state) => state.game)
 
     const GetPlat = () => {
-        // console.log(id);
         let plata = [];
         if(game.DataBase === true){
             game.platforms.map((plat) => {
@@ -40,6 +39,7 @@ const Detail = ()=>{
                 if (resultado === true) {
                     window.alert('Juego borrado con éxito');
                     dispatch(deleteVideoGame(id));
+                    // dispatch(getGames())
                     navigate(`/home`);
                     window.location.replace('');
                 }
@@ -88,12 +88,15 @@ const Detail = ()=>{
                 <h3>Fecha de lanzamiento: </h3>
                 <h4>  {game.release_date === undefined ? game.released : game.release_date}</h4>
             </div>
-            <button className={deleteGame} onClick={(e) => handleDeleteGame(e)}>Delete game</button>
-            
+                {game.DataBase === true
+                ? 
+                <button className={deleteGame} onClick={(e) => handleDeleteGame(e)}>Delete game</button>
+                : <h3>Este juego no se puede borrar</h3>
+                } 
             </div>
             : 
             <div className={loadingDetail}>
-                <img src="https://hbr.org/resources/images/article_assets/2021/06/Jun21_26_1221368566_1159233041_1219183183.gif" style={{height:"100vh"}} alt="loading"/>
+                <img src="https://cdn.dribbble.com/users/1253165/screenshots/3621577/media/0cc3e97033b3200c987b69b535ed3e64.gif" style={{height:"100vh"}} alt="loading"/>
                 </div>
             }
         </div>

@@ -107,8 +107,6 @@ const reducer = (state = initialState, action) =>{
         case POST_GAME:
             return{
                 ...state,
-                // gameCreated: "VideoGame created successfully",
-                // videogames: [...state.videogames, action.payload]
                 gameCreated: action.payload 
             }
         case CLEAR_POST: 
@@ -139,8 +137,7 @@ const reducer = (state = initialState, action) =>{
             }
         default: return state;   
 }
-
-
 }
+
 export default reducer;
 
