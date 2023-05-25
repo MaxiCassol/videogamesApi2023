@@ -49,12 +49,12 @@ const Home = () => {
     }
 
     const handlerFilter = (e)=>{
-        e.preventDefault()
+        e.preventDefault()        
         dispatch(getFilterByGenres(e.target.value))
         dispatch(setPagination(itemsPerPage, 1))
-        
-
+        if(e.target.value === "all") dispatch(getGames())
     }
+
     const handlerCreated = (e)=>{
         e.preventDefault()
         dispatch(createdFilterGame(e.target.value))
