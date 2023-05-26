@@ -26,8 +26,8 @@ class About extends React.Component{
                 <h2>FULL STACK DEVELOPER - Soy Henry</h2>
                 <hr />
                 <div>
-                    <h2>You can search the world by country </h2>
-                    <h2>Add activities you can do in each of them. </h2>
+                    <h2>You can search the world of Videogames </h2>
+                    <h2>create a videogame you want to add to de database</h2>
                     <h2>Hope you enjoy it!</h2>
                 </div>
                 
