@@ -6,7 +6,8 @@ import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import About from "./components/About/About"
 import style from "./App.module.css"
-
+import axios from 'axios';
+axios.defaults.baseURL = 'https://videogamesapi2023-production.up.railway.app/'
 
 function App() {
   return (
