@@ -1,5 +1,6 @@
 const axios = require("axios")
 const {Genres} = require("../db")
+require('dotenv').config();
 const {URL_BASE, KEY} = process.env
 
 const getVideoGameByGenres = async () => {
