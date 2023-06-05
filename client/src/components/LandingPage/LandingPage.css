@@ -6,6 +6,7 @@
     height: 100vh;
     text-align: center;
     padding-top: 4rem;
+    padding-bottom: 6rem;
 }
 .welcomeLanding{
     color: orange;
@@ -26,7 +27,7 @@
 
 .button,
 .button:after {
-    margin-top: 39%;
+    margin-top: 30%;
   width: 150px;
   height: 76px;
   line-height: 78px;
@@ -56,7 +57,7 @@
   --slice-4: inset(40% -6px 43% 0);
   --slice-5: inset(80% -6px 5% 0);
   
-  content: 'ALTERNATE TEXT';
+  content: 'DARK SIDE';
   display: block;
   position: absolute;
   top: 0;
