@@ -1,7 +1,7 @@
 const { Videogame, Genres } = require('../db');
 const { default: axios } = require("axios");
 require('dotenv').config();
-const { KEY, URL_BASE} = process.env;
+const { KEY} = process.env;
 
 const getGamesOnDb = async () => {
     const gamesOnDb = await Videogame.findAll({
@@ -30,7 +30,7 @@ const getGamesOnApi = async () => {
     //Pego a la api y traigo 20 juegos
     //(pag 1 en iterador 0 ---> 20 juegos)
     let response = await axios.get(
-        `${URL_BASE}games?key=${KEY}`,//3 ---> 4
+        `https://api.rawg.io/api/games?key=${KEY}`,//3 ---> 4
     )
 
     //Hago el endpoint anterior 5 veces para traerme un total de 100 juegos
