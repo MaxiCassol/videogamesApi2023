@@ -19,7 +19,7 @@ export const getGames = () => {
     return async function (dispatch) {
         try {
             // const response = await axios.get("http://localhost:3001/videogames");
-            const response = await axios.get("https://videogamesapi2023-production-880c.up.railway.app/videogames");
+            const response = await axios.get("/videogames");
 
             return dispatch({
                 type: GET_GAMES,
@@ -39,7 +39,7 @@ export const getGameByName = (name) => {
     return async function(dispatch){
         try {
             // const info = await axios.get(`http://localhost:3001/videogames?name=${name}`)
-            const info = await axios.get(`https://videogamesapi2023-production-880c.up.railway.app/videogames?name=${name}`)
+            const info = await axios.get(`/videogames?name=${name}`)
         return dispatch({
             type: GET_BY_NAME,
             payload: info.data
@@ -54,7 +54,7 @@ export const getGenres = (payload) => {
     return async function (dispatch) {
         try {
             // let response = await axios.get("http://localhost:3001/genres", payload)
-            let response = await axios.get("https://videogamesapi2023-production-880c.up.railway.app/genres", payload)
+            let response = await axios.get("/genres", payload)
             return dispatch({
                 type: GET_GENRES,
                 payload: response.data
@@ -99,7 +99,7 @@ export const filterByRating = (value) => {
 export const getDetailgame = (value) => {
     return async function(dispatch){
         // const gameById = await axios.get(`http://localhost:3001/videogames/${value}`)
-        const gameById = await axios.get(`https://videogamesapi2023-production-880c.up.railway.app/videogames/${value}`)
+        const gameById = await axios.get(`/videogames/${value}`)
 
         return dispatch({
         type: DETAIL_GAME,
@@ -111,7 +111,7 @@ export const getDetailgame = (value) => {
 export const postVideogame = (res) => {
     return async function (dispatch){
         // const resp = await axios.post("http://localhost:3001/videogames",res)
-        const resp = await axios.post("https://videogamesapi2023-production-880c.up.railway.app/videogames",res)
+        const resp = await axios.post("/videogames",res)
         
         return dispatch({
             type: POST_GAME,
@@ -131,7 +131,7 @@ export const deleteVideoGame = (id) => {
     return async function (dispatch) {
         try {
             // let response = await axios.delete(`http://localhost:3001/videogames/${id}`)
-            let response = await axios.delete(`https://videogamesapi2023-production-880c.up.railway.app/videogames/${id}`)
+            let response = await axios.delete(`/videogames/${id}`)
             return dispatch({
                 type: DELETED_GAME,
                 payload: response.data
