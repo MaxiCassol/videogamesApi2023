@@ -184,8 +184,7 @@ const Form = () =>{
                     {form.platforms.map((plat)=>{
                     return <div key={plat}> {plat}
                     <button value={plat} onClick={(e) => handlerDeletePlat(e)} style={{color:"white", backgroundColor:"red"}}> X </button> 
-                    </div>
-                    })}
+                    </div>})}
                 </div>
                 <div className={containerGenre}>
                     <h3>Generos seleccionados:  </h3>
