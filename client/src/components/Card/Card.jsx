@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./Card.css";
 import React from "react";
 
+
 export default function CardGames({id, background_image, name, genres}) { 
    
    return (
