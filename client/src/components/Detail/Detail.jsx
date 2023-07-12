@@ -30,8 +30,7 @@ const Detail = ()=>{
         plata = plata.toString().replace(/,/g, " - ")
         return(
     <div className="plat">{plata}</div>
-    )
-    }
+    )}
 
     const handleDeleteGame = (e) => {
                 e.preventDefault()
