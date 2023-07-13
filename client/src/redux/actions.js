@@ -34,7 +34,6 @@ export const getGames = () => {
     };
 };
 
-
 export const getGameByName = (name) => {
     return async function(dispatch){
         try {
