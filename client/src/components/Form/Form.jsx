@@ -9,9 +9,9 @@ import { getGenres, postVideogame } from "../../redux/actions";
 
 
 const Form = () =>{
-    const navigate = useNavigate()
-    const genres = useSelector((state) => state.genres)
-    const dispatch = useDispatch()
+    const navigate = useNavigate();
+    const genres = useSelector((state) => state.genres);
+    const dispatch = useDispatch();
 
     const [form, setForm] = useState({
     name: "",
