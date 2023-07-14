@@ -144,7 +144,7 @@ const reducer = (state = initialState, action) =>{
                 details: [],
             }
         default: return state;   
-}
+    }
 }
 
 export default reducer;
