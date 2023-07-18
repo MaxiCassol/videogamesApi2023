@@ -7,7 +7,6 @@ import  handlerInput  from "../handlersForm/handlerInput";
 import style from  "./StyleForm.module.css"
 import { getGenres, postVideogame } from "../../redux/actions";
 
-
 const Form = () =>{
     const navigate = useNavigate();
     const genres = useSelector((state) => state.genres);
