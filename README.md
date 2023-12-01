@@ -1,6 +1,50 @@
-![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
 
 # **VIDEOGAMES** | Proyecto Individual
+
+Videogames App es una aplicación web que permite buscar, filtrar y ordenar videojuegos de diferentes plataformas y géneros. La aplicación consume datos de una API externa (RAWG) y también tiene una base de datos propia donde se pueden crear y almacenar videojuegos personalizados. El objetivo de este proyecto es demostrar mis habilidades como desarrollador full stack usando Javascript, React, Redux, Node.js, Express y Sequelize.
+
+## **📌 Instalación**
+
+Para instalar y ejecutar este proyecto en tu máquina local, sigue estos pasos:
+
+Clona este repositorio usando el comando git clone https://github.com/MaxiCassol/videogamesApi2023.git
+Instala las dependencias del lado del cliente usando el comando npm install en la carpeta client
+Instala las dependencias del lado del servidor usando el comando npm install en la carpeta api
+Crea una base de datos Postgres llamada videogames y configura las variables de entorno necesarias para conectarte a ella (ver archivo .env.example)
+Ejecuta las migraciones usando el comando npm run migrate en la carpeta api
+Ejecuta los seeders usando el comando npm run seed en la carpeta api
+Inicia el servidor usando el comando npm start en la carpeta api
+Inicia el cliente usando el comando npm start en la carpeta client
+Abre tu navegador y visita la dirección http://localhost:3000
+
+## **📌 Uso**
+
+Para usar esta aplicación, puedes hacer lo siguiente:
+
+En la página principal, verás una lista de videojuegos con su nombre, imagen y géneros. Puedes navegar por las páginas usando los botones inferiores.
+En la barra de búsqueda, puedes introducir el nombre de un videojuego y presionar enter para buscarlo. Los resultados se mostrarán en la misma página.
+En el panel izquierdo, puedes aplicar filtros por plataforma o por género. También puedes ordenar los videojuegos por nombre o por rating.
+Si haces clic en un videojuego, accederás a una página de detalle donde verás más información sobre él, como su descripción, fecha de lanzamiento, rating y plataformas.
+En la barra superior, puedes acceder a la página de creación de videojuegos, donde podrás crear tu propio videojuego personalizado rellenando un formulario con los datos que quieras. Los videojuegos creados se guardarán en la base de datos local y podrás verlos en la página principal.
+
+## **📌 Tecnologías**
+
+Las tecnologías utilizadas para desarrollar este proyecto son las siguientes:
+
+Javascript: Lenguaje de programación usado tanto en el lado del cliente como en el lado del servidor.
+React: Librería de Javascript para crear interfaces de usuario dinámicas y reactivas.
+Redux: Librería de Javascript para gestionar el estado global de la aplicación.
+Node.js: Entorno de ejecución de Javascript que permite crear aplicaciones web del lado del servidor.
+Express: Framework de Node.js que facilita la creación de servidores web y APIs RESTful.
+Sequelize: ORM (Object Rel
+
+<br />
+
+---
+
+<br />
+
+Consignas del trabajo:
 
 ## **📌 OBJETIVOS**
 
@@ -10,16 +54,6 @@
 -  Aprender mejores prácticas.
 -  Aprender y practicar el workflow de GIT.
 -  Utilizar y practicar testing.
-
-<br />
-
----
-
-## **⏱ HORARIOS Y FECHAS**
-
-El proyecto individual tiene una duración máxima de tres semanas. Se inicia la primera semana con un Kick-Off, y se agendará una corrección personalizada la última semana.
-
-En el caso de completar todas las tareas antes de dicho lapso se podrá avisar a su instructor para coordinar una fecha de presentación del trabajo (DEMO).
 
 <br />
 
@@ -235,20 +269,6 @@ Este formulario debe ser **controlado completamente con JavaScritp**. No se pued
 -  Botón para crear el nuevo videojuego.
 
 > [**IMPORANTE**]: es requisito que el formulario de creación esté validado sólo con JavaScript. Puedes agregar las validaciones que consideres. Por ejemplo: que el nombre del videojuego no pueda contener símbolos, o que el rating no pueda exceder determinado valor, etc.
-
-<br />
-
----
-
-<br />
-
-### **🖱 TESTING**
-
-Ten en cuenta que en esta instancia no es obligatorio el desarrollo de testing para tu aplicación. De igual manera, te desafiamos a que los hagas, ¡ya que suman puntos!
-
--  Al menos tener un componente del frontend con sus tests respectivos.
--  Al menos tener dos rutas del backend con sus tests respectivos.
--  Al menos tener un modelo de la base de datos con sus tests respectivos.
 
 <br />
 
